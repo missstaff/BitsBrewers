@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitsBrewers", "BitsBrewers\BitsBrewers.csproj", "{E571ED3A-6507-4B05-98B4-53B539DB7D03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitsBrewersUnitTests", "BitsBrewersUnitTests\BitsBrewersUnitTests.csproj", "{52D663BB-12C9-4AB1-A021-7A743C83BDF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitsBrewersUnitTests", "BitsBrewersUnitTests\BitsBrewersUnitTests.csproj", "{0E988EFA-EFFB-4B92-8859-ABE0A3DE3446}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{E571ED3A-6507-4B05-98B4-53B539DB7D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E571ED3A-6507-4B05-98B4-53B539DB7D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E571ED3A-6507-4B05-98B4-53B539DB7D03}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52D663BB-12C9-4AB1-A021-7A743C83BDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52D663BB-12C9-4AB1-A021-7A743C83BDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52D663BB-12C9-4AB1-A021-7A743C83BDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52D663BB-12C9-4AB1-A021-7A743C83BDF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E988EFA-EFFB-4B92-8859-ABE0A3DE3446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E988EFA-EFFB-4B92-8859-ABE0A3DE3446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E988EFA-EFFB-4B92-8859-ABE0A3DE3446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E988EFA-EFFB-4B92-8859-ABE0A3DE3446}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
