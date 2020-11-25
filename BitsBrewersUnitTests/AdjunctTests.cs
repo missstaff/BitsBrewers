@@ -48,15 +48,6 @@ namespace BitsBrewersUnitTests
         }
 
         [Test]
-        public void DeleteTest()
-        {
-            a = dbContext.Adjunct.Find(759);
-            dbContext.Adjunct.Remove(a);
-            dbContext.SaveChanges();
-            Assert.IsNull(dbContext.Adjunct.Find(759));
-        }
-
-        [Test]
         public void CreateTest()
         {
             a = new Adjunct();
@@ -80,6 +71,15 @@ namespace BitsBrewersUnitTests
             dbContext.SaveChanges();
             a = dbContext.Adjunct.Find(884);
             Assert.AreEqual("Spice", a.UseFor);
+        }
+
+        [Test]
+        public void DeleteTest()
+        {
+            a = dbContext.Adjunct.Find(884);
+            dbContext.Adjunct.Remove(a);
+            dbContext.SaveChanges();
+            Assert.IsNull(dbContext.Adjunct.Find(884));
         }
 
         public void PrintAll(List<Adjunct> adjuncts)
