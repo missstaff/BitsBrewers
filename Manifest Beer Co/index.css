@@ -25,6 +25,15 @@ nav, .dropdown-menu {
   color: var(--light-gray);
 }
 
+.drop-menu2 {
+  border-collapse: collapse;
+  border-width: 1px;
+  border-color: var(--main-dgray) !important;
+  background-color: var(--light-gray);
+  margin-right: 5rem;
+  
+}
+
 h1, h2, h3 {
   margin-top: 1rem;
   margin-right: 2rem;
@@ -85,7 +94,20 @@ table, tr {
     border-width: 1.75px;
     border-color: var(--main-dgray) !important;
     background-color: var(--main-lblue) !important;
-    padding: 3px;
+    padding: 5px;
+  }
+
+  .button2 {
+    width: 50%;
+    border-collapse: collapse;
+    border-width: 1.75px;
+    border-color: var(--main-dgray) !important;
+    background-color: var(--main-lblue) !important;
+    padding: 5px;
+    margin-top: 0.5rem;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+    margin-left: 2.5rem;
   }
 
   svg {
@@ -115,6 +137,14 @@ table, tr {
   .form2 {
     margin-top: 3rem;
     margin-bottom: 3rem;
+  }
+
+  .arrow {
+    color: var(--main-dgray);
+  }
+
+  .arrow:hover {
+    color: var(--main-dgray);
   }
 
   footer {
