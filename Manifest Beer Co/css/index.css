@@ -101,13 +101,8 @@ table, tr {
     width: 50%;
     border-collapse: collapse;
     border-width: 1.75px;
-    border-color: var(--main-dgray) !important;
-    background-color: var(--main-lblue) !important;
     padding: 5px;
-    margin-top: 0.5rem;
-    margin-right: auto;
-    margin-bottom: 0.5rem;
-    margin-left: 2.5rem;
+    margin: auto;
   }
 
   svg {
@@ -125,26 +120,9 @@ table, tr {
     border-radius: 25px;
   }
 
-  .image2 {
-    background-color: var(--main-dgray);
-    display: inline;
-    margin-right: auto;
-    margin-left: auto;
-    height:2rem;
-    width:3rem;
-  }
-
   .form2 {
     margin-top: 3rem;
     margin-bottom: 3rem;
-  }
-
-  .arrow {
-    color: var(--main-dgray);
-  }
-
-  .arrow:hover {
-    color: var(--main-dgray);
   }
 
   footer {
