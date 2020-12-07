@@ -87,7 +87,7 @@ table tr:nth-child(2n+2) > td, .table-striped > tbody > tr:nth-child(2n+2) > th 
 
  .button2 {
    color: var(--main-lblue);
-   margin-left: 55rem;
+   float: right;
    color: var(--main-owhite);
    border-color: var(--main-dgray) !important;
    background-color: var(--main-dgray) !important;

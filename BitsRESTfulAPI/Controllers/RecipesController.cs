@@ -20,6 +20,7 @@ namespace BitsRESTfulAPI.Controllers
         }
 
         // GET: api/Recipe
+        //gets all recipes~this works
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipe()
         {
@@ -28,6 +29,7 @@ namespace BitsRESTfulAPI.Controllers
         }
 
         // GET BY ID: api/Recipe/5
+        //searches the list retieves a recipe by id ~ this still works
         [HttpGet("{id}")]
         public async Task<ActionResult<Recipe>> GetRecipe(int id)
         {
@@ -41,7 +43,9 @@ namespace BitsRESTfulAPI.Controllers
             return recipe;
         }
 
-        //search by name
+        //search by name? I am not certain this is correct; 1 of 50 ways I unsuccesfully wrote the api call
+        //localhost:44394/api/recipes?name=update
+        //I am uncertain if it is my code or I just couldn't figure out the api call
         [HttpGet("name/{name}")]
         public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipeByName(string name)
         {

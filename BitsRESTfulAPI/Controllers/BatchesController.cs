@@ -9,6 +9,7 @@ using BitsBrewers.Models;
 
 namespace BitsRESTfulAPI.Controllers
 {
+    //auto generated; I never successfully seached recipes by name I did nothing here//
     public class BatchesController : Controller
     {
         private readonly BitsContext _context;
