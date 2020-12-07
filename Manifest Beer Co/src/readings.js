@@ -5,7 +5,7 @@ class Readings {
         this.getDate = this.getDate.bind(this);
         this.getDate();
     }
-
+    //Displays date at top of page
     getDate() {
         let today = new Date();
         let year = today.getFullYear();
