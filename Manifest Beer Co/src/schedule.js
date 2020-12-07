@@ -49,13 +49,16 @@ class Schedule {
 
     /////////////////////////////////////////////////////////////////////////////////
     /**Start brew button will turn the day selected green on the calendar open the daily form 
-    where brewer can set end date and confirm ingredients used which will be automatically updated in DB
+    where brewer can set the antipated end date and confirm ingredients used which will be automatically updated in DB
     once submit button is hit remove the expected ingredients
     the databse; there is navigation to an additional subtract ingredients option for crafing brews or expirimenting*/
     ///////////////////////////////////////////////////////////////////////////////////////////////////
     /*The calendar has an ontouch event for each day that will bring up a form to enter daily readings; readings 
     will be saved in local storage and pushed to the database when end brew is selected. There will also be a notes
     section on the form which will also be pushed to the database when end brew is selected*/
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /*Selecting end brew will finish the brew schedule by changing status, removing that batch from the brew schedule
+    and pushing all dailing readings and notes associated with the brew to DB*/
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     getWeekDay() {
         
