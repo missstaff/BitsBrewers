@@ -4,7 +4,7 @@
 <head>
     <!--Author Shawna Staff-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=devicewidth, initialscale=1.0">
+    <meta name="viewport" content="">
     <title>Manifest Beer Co</title>
     <!--Favicon-->
     <link rel="shortcut icon" type="image/jpg" href="./images/favicon.ico" />
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!--CSS-->
-    <link rel="stylesheet" href="/css/schedule.css" type="text/css" />
+    <link rel="stylesheet" href="../css/schedule.css" type="text/css" />
     <!-- jQuery and JS bundle w/ Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -20,6 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+        <script src="../src/schedule.js"></script>
 </head>
 
 <body>
@@ -62,10 +63,92 @@
     <br />
 
     <div>
-        <h1>Brew Schedule</h1>
+        <h1 id="month-year">Brew Schedule</h1>
+        <div>
+            <h2 id="currentMonth"></h2>
+            <form class="form-inline" action="/action_page.php">
+                <!--needs the page it going to .php-->
+                <button class="btn btn-success ml-5" type="submit">Start Brew</button>
+                <button class="btn btn-danger ml-1" type="submit">End Brew</button>
+            </form>
+        </div>
         <br />
-                 <!--Logo-->
-    <div class="mr-5">
+    </div>
+    <!--Logo-->
+    <div >
         <img src="../images/transparentLogo.png" class="image" alt="Manifest Brewery Co logo" />
     </div>
     <br />
+
+    <div>
+        <table class="container-fullwidth table table striped">
+            <thead>
+                <tr>
+                    <th class="day" id="weekDay">SUN</th>
+                    <th class="day" id="weekDay">MON</th>
+                    <th class="day" id="weekDay">TUE</th>
+                    <th class="day" id="weekDay">WED</th>
+                    <th class="day" id="weekDay">THUR</th>
+                    <th class="day" id="weekDay">FRI</th>
+                    <th class="day" id="weekDay">SAT</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <!--might need to change id to a number for easily iterating a for loop? we will see-->
+                <td class="cal" id="0"></td>
+                <td class="cal" id="1"></td>
+                <td class="cal" id="2"></td>
+                <td class="cal" id="3"></td>
+                <td class="cal" id="4"></td>
+                <td class="cal" id="5"></td>
+                <td class="cal" id="6"></td>
+            </tr>
+            <tr>
+                <td class="cal" id="7"></td>
+                <td class="cal" id="8"></td>
+                <td class="cal" id="9"></td>
+                <td class="cal" id="10"></td>
+                <td class="cal" id="11"></td>
+                <td class="cal" id="12"></td>
+                <td class="cal" id="13"></td>
+            </tr>
+            <tr>
+                <td class="cal" id="14"></td>
+                <td class="cal" id="15"></td>
+                <td class="cal" id="16"></td>
+                <td class="cal" id="17"></td>
+                <td class="cal" id="18"></td>
+                <td class="cal" id="19"></td>
+                <td class="cal" id="20"></td>
+            </tr>
+            <tr>
+                <td class="cal" id="21"></td>
+                <td class="cal" id="22"></td>
+                <td class="cal" id="23"></td>
+                <td class="cal" id="24"></td>
+                <td class="cal" id="25"></td>
+                <td class="cal" id="26"></td>
+                <td class="cal" id="27"></td>
+            </tr>
+            <tr>
+                <td class="cal" id="28"></td>
+                <td class="cal" id="29"></td>
+                <td class="cal" id="30"></td>
+                <td class="cal" id="31"></td>
+                <td class="cal" id="32"></td>
+                <td class="cal" id="33"></td>
+                <td class="cal" id="34"></td>
+            </tr>
+
+        </table>
+    </div>
+    <footer>
+        <div>
+            <p class="footer-div">&#169;Manifest Brewing Co</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

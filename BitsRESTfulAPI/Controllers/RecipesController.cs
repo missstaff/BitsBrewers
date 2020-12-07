@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BitsBrewers.Models;
@@ -20,14 +19,15 @@ namespace BitsRESTfulAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Recipes
+        // GET: api/Recipe
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipe()
         {
+            // converting to a list
             return await _context.Recipe.ToListAsync();
         }
 
-        // GET: api/Recipes/5
+        // GET BY ID: api/Recipe/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Recipe>> GetRecipe(int id)
         {
@@ -41,9 +41,84 @@ namespace BitsRESTfulAPI.Controllers
             return recipe;
         }
 
-        // PUT: api/Recipes/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        //search by name
+        [HttpGet("name/{name}")]
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipeByName(string name)
+        {
+            var recipe = await _context.Recipe.Include("Style")
+                                              .Include("Batch")
+                                              .Include("Equipment").Where(r => r.Name == name).ToListAsync();
+
+            if (recipe.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return recipe;
+        }
+
+        // api/recipe/equipment/name
+        [HttpGet("equipment/{name}")]
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetEquipmentByRecipeEquipmentName(string name)
+        {
+            var recipe = await _context.Recipe.Include("Equipment").Where(recipe => recipe.Name == name).ToListAsync();
+            if (recipe == null)
+            {
+                return NotFound();
+            }
+
+            return recipe;
+        }
+
+        //search by style
+        [HttpGet("type/{name}")]
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipeByStyle(string name)
+        {
+            var recipe = await _context.Recipe.Include("Style").Where(r => r.Style.Name == name).ToListAsync();
+
+            if (recipe.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return recipe;
+        }
+
+        [HttpPut("{name}")]
+        public async Task<IActionResult> PutRecipe(string name, Recipe recipe)
+        {
+            if (name != recipe.Name)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(recipe).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!RecipeExists(name))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        private bool RecipeExists(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        // PUT: api/Recipe/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRecipe(int id, Recipe recipe)
         {
@@ -73,9 +148,6 @@ namespace BitsRESTfulAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Recipes
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Recipe>> PostRecipe(Recipe recipe)
         {
@@ -85,7 +157,7 @@ namespace BitsRESTfulAPI.Controllers
             return CreatedAtAction("GetRecipe", new { id = recipe.RecipeId }, recipe);
         }
 
-        // DELETE: api/Recipes/5
+        // DELETE: api/Recipe/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Recipe>> DeleteRecipe(int id)
         {

@@ -38,6 +38,13 @@ namespace BitsRESTfulAPI
             services.AddDbContext<BitsContext>();
             services.AddControllers();
         }
+        /// <summary>
+        /// Endpoints
+        /// </summary>
+        //Uri for records referenced in this sample
+        //private static Uri recipe;
+        //determine if a record should be deleted or added
+        //private static readonly bool deleteCreatedRecords = true;
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -63,6 +70,8 @@ namespace BitsRESTfulAPI
             {
                 endpoints.MapControllers();
             });
+
+            //
         }
     }
 }

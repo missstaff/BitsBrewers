@@ -1,0 +1,167 @@
+﻿@model IEnumerable<BitsBrewers.Models.Style>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Version)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryLetter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StyleGuide)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OgMin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OgMax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FgMin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FgMax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IbuMin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IbuMax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ColorMin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ColorMax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarbMin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarbMax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbvMin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbvMax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ingredients)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Examples)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryLetter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StyleGuide)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgMin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgMax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FgMin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FgMax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IbuMin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IbuMax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ColorMin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ColorMax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbMin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbMax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbvMin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbvMax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingredients)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Examples)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StyleId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StyleId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StyleId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

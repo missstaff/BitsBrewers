@@ -1,0 +1,74 @@
+
+class Schedule {
+
+    constructor() {
+        //Instance variables//
+        this.days = Array(38).fill(null);
+
+        //Bindings//
+        this.getMonthYear = this.getMonthYear.bind(this);
+        this.getMonthYear();
+        this.getWeekDay = this.getWeekDay.bind(this);
+        this.getWeekDay();
+
+        this.id = this.getWeekDay();
+        //Touch Event handler//   
+        for (let i = 0; i < this.days.length; i++) {
+            let id = i;
+            document.getElementById(id).ontouchend = this.touched.bind(this);
+        }
+    }
+
+    touched() {
+        console.log("touch");
+    }
+
+    //retrieves month and year~displayed at top of page
+    getMonthYear() {
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = monthNames[today.getMonth()];
+        let monthYear = `
+        <div>
+        <h1>Brew Schedule</h1>
+        <div><h2 id="currentMonth">${month} ${year}</h2></div>
+        <br />
+    </div>
+` ;
+        document.getElementById("month-year").innerHTML = monthYear;
+
+    }
+    //retrieves numeric dates and places them on the calendar
+    //need to figure out how to nest loops to make day set at the correct weekday 
+    getWeekDay() {
+        
+        this.days.splice(32);
+        let startDate = new Date();
+        let year = startDate.getFullYear();
+        let month = startDate.getMonth();
+        let startDay = new Date(year, month, 1);
+        let start = startDay.getDay();
+        //let numOfDays = 32 - new Date(year, month, 32).getDate(); // of the month
+        
+        for (let i = start; i < this.days.length; i++) {
+            let id = i;
+            if (id <= 31 || month == 1 || month == 3 || month == 5 || month == 7 || month == 8
+                || month == 10 || month == 12) {
+                document.getElementById(id).innerHTML = id;
+            }else if (id <= 30 || month == 4 || month == 6 || month == 9 || month == 11) {
+                document.getElementById(id).innerHTML = id;
+            }else
+            {
+                id++;
+            }
+        }
+
+    }
+}
+
+let schedule;
+window.onload = () => { schedule = new Schedule(); }
