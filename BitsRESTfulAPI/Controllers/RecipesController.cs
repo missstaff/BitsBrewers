@@ -63,7 +63,7 @@ namespace BitsRESTfulAPI.Controllers
 
         // api/recipe/equipment/name
         [HttpGet("equipment/{name}")]
-        public async Task<ActionResult<IEnumerable<Recipe>>> GetEquipmentByRecipeEquipmentName(string name)
+        public async Task<ActionResult<IEnumerable<Recipe>>> EquipmentName(string name)
         {
             var recipe = await _context.Recipe.Include("Equipment").Where(recipe => recipe.Name == name).ToListAsync();
             if (recipe == null)

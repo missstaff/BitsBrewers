@@ -46,10 +46,6 @@ namespace BitsRESTfulAPI
         /// <summary>
         /// Endpoints
         /// </summary>
-        //Uri for records referenced in this sample
-        //private static Uri recipe;
-        //determine if a record should be deleted or added
-        //private static readonly bool deleteCreatedRecords = true;
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -73,10 +69,22 @@ namespace BitsRESTfulAPI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                // endpoints.MapControllers(); //didn't want to delete~not sure I need it
+                //think this is what I need??
+                endpoints.MapControllerRoute(
+            name: "name",
+            pattern: "{controller=Recipe}/{action=GetRecipeByName}/{name?}");
+
+                endpoints.MapControllerRoute(
+               name: "equipment",
+               pattern: "{controller=Recipe}/{action=EquipmentName}/{name?}");
+
+                endpoints.MapControllerRoute(
+              name: "type",
+              pattern: "{controller=Recipe}/{action=GetRecipeByStyle}/{name?}");
             });
 
-            //
+            
         }
     }
 }
