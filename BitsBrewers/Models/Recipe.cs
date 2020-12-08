@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace BitsBrewers.Models
@@ -39,5 +40,7 @@ namespace BitsBrewers.Models
         public virtual Style Style { get; set; }
         public virtual ICollection<Batch> Batch { get; set; }
         public virtual ICollection<RecipeIngredient> RecipeIngredient { get; set; }
+
+          
     }
 }

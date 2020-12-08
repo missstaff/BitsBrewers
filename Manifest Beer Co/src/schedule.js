@@ -20,7 +20,7 @@ class Schedule {
     }
     //on touch event
     touched() {
-       // console.log("touch"); //~ test trash
+       console.log("touch"); //~ test trash
     }
 
     //retrieves month and year~displayed at top of page

@@ -34,9 +34,14 @@ namespace BitsRESTfulAPI
                     .AllowAnyHeader();
                 });
             });
+
+
             // adding the dbContext to the service
             services.AddDbContext<BitsContext>();
-            services.AddControllers();
+            services.AddControllers() //edited here this ended eith semi colon next 2 lines were added
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
         }
         /// <summary>
         /// Endpoints
@@ -53,7 +58,7 @@ namespace BitsRESTfulAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseHttpsRedirection();
 
             // in a production app you would want to turn this back on!
