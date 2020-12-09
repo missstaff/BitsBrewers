@@ -20,6 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+    <script src="../src/index.js"></script>
 </head>
 
 <body>
@@ -68,11 +69,12 @@
         <h1>Brew Ingredients</h1>
         <br />
         <!--Search Box-->
-        <form class="form-inline" action="/action_page.php">
+        <form class="form-inline" action="index.html">
             <!--needs the page it going to .php-->
             <h2>Scheduled Brews</h2>
-            <input class="form-control p-2 mr-sm-2 search-bar" type="text" placeholder="Search by name or style">
-            <button class="btn btn-success mr-1" type="submit">Search</button>
+            <input class="form-control p-2 mr-sm-2 search-bar" id="search" type="text"
+                placeholder="Search by name or style">
+            <button class="btn btn-success mr-1" id="search-form" type="submit">Search</button>
         </form>
     </div>
     <!--Logo-->
@@ -89,7 +91,7 @@
             <tr>
                 <th>NAME</th>
                 <th>STYLE</th>
-                <th>VERSION</th>
+                <th>V</th>
                 <th>IBU</th>
                 <th>AVB</th>
                 <th>HISTORY</th>
@@ -100,111 +102,23 @@
                 <th>SCHEDULE</th>
             </tr>
         </thead>
-        <tr>
-            <td>Name</td>
-            <td>Style</td>
-            <td>Version</td>
-            <td>IBU</td>
-            <td>AVB</td>
-            <td><a class="btn btn-default button1" href="history.html">History</a></td>
-            <td><a class="btn btn-default button1" href="ingredients.html">Ingredients</a></td>
-            <td><a class="btn btn-default button1" href="container.html">Select</button></td>
-            <td>QOH</td>
-            <td>Y/N</td>
-            <!--ideally this icon would display expected date of completion(red) or start(green)-->
-            <td><a class="btn btn-default button2" href="./schedule.html">
-                    <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                    </svg>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Style</td>
-            <td>Version</td>
-            <td>IBU</td>
-            <td>AVB</td>
-            <td><a class="btn btn-default button1" href="history.html">History</a></td>
-            <td><a class="btn btn-default button1" href="ingredients.html">Ingredients</a></td>
-            <td><a class="btn btn-default button1" href="container.html">Select</button></td>
-            <td>QOH</td>
-            <td>Y/N</td>
-            <!--ideally this icon would display expected date of completion(red) or start(green)-->
-            <td><a class="btn btn-default button2" href="./schedule.html">
-                    <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                    </svg>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Style</td>
-            <td>Version</td>
-            <td>IBU</td>
-            <td>AVB</td>
-            <td><a class="btn btn-default button1" href="history.html">History</a></td>
-            <td><a class="btn btn-default button1" href="ingredients.html">Ingredients</a></td>
-            <td><a class="btn btn-default button1" href="container.html">Select</button></td>
-            <td>QOH</td>
-            <td>Y/N</td>
-            <!--ideally this icon would display expected date of completion(red) or start(green)-->
-            <td><a class="btn btn-default button2" href="./schedule.html">
-                    <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                    </svg>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Style</td>
-            <td>Version</td>
-            <td>IBU</td>
-            <td>AVB</td>
-            <td><a class="btn btn-default button1" href="history.html">History</a></td>
-            <td><a class="btn btn-default button1" href="ingredients.html">Ingredients</a></td>
-            <td><a class="btn btn-default button1" href="container.html">Select</button></td>
-            <td>QOH</td>
-            <td>Y/N</td>
-            <!--ideally this icon would display expected date of completion(red) or start(green)-->
-            <td><a class="btn btn-default button2" href="./schedule.html">
-                    <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                    </svg>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Style</td>
-            <td>Version</td>
-            <td>IBU</td>
-            <td>AVB</td>
-            <td><a class="btn btn-default button1" href="history.html">History</a></td>
-            <td><a class="btn btn-default button1" href="ingredients.html">Ingredients</a></td>
-            <td><a class="btn btn-default button1" href="container.html">Select</button></td>
-            <td>QOH</td>
-            <td>Y/N</td>
-            <!--ideally this icon would display expected date of completion(red) or start(green)-->
-            <td><a class="btn btn-default button2" href="./schedule.html">
-                    <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                    </svg>
-                </a>
-            </td>
-        </tr>
+        <tbody id="brew">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <!--ideally this icon would display expected date of completion(red) or start(green)-->
+                <td></td>
+            </tr>
+            </div>
+        </tbody>
     </table>
     <!--links to previous and next page-->
     <ul class="ul2">
