@@ -11,13 +11,15 @@ class Schedule {
         this.renderCalendar = this.renderCalendar.bind(this);
         this.renderCalendar();
 
-        this.id = this.renderCalendar();
+        
         //Touch Event handler//   
+        this.id = this.renderCalendar();
         for (let i = 0; i < this.days.length; i++) {
             let id = i;
             document.getElementById(id).ontouchend = this.touched.bind(this);
         }
     }
+
     //on touch event
     touched() {
         console.log("touch"); //~ test trash
@@ -32,6 +34,7 @@ class Schedule {
         let today = new Date();
         let year = today.getFullYear();
         let month = monthNames[today.getMonth()];
+        
         let monthYear = `
         <div>
         <h1>Brew Schedule</h1>
@@ -42,10 +45,6 @@ class Schedule {
         document.getElementById("month-year").innerHTML = monthYear;
 
     }
-
-
-    /*retrieves numeric dates and places them on the calendar
-    need to figure out how to nest loops to make day set at the correct weekday*/
 
     /////////////////////////////////////////////////////////////////////////////////
     /**Start brew button will turn the day selected green on the calendar open the daily form 
@@ -68,17 +67,16 @@ class Schedule {
         let month = startDate.getMonth();
         let startDay = new Date(year, month, 1);
         let start = startDay.getDay();
-        //let dayOfWeek = weekDays[startDay.getDay()];
         let day = start;
         let id = 50;
+
         for (let d = 0; d < weekDays.length; d++) {
             document.getElementById(id).innerHTML = weekDays[day];
             id++;
             day++;
             if(day > 6) {
                 day = 0;
-            }
-            
+            }  
         }
         for (let i = start; i < this.days.length; i++) {
             let id = i;
@@ -94,8 +92,6 @@ class Schedule {
         }
 
     }
-
-
 }
 
 let schedule;

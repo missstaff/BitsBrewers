@@ -1,6 +1,5 @@
 class Index {
     constructor() {
-        this.recipeArray = [];
         this.url = 'https://localhost:44394/api/recipes/name/';
 
         this.recipe = {
@@ -27,22 +26,21 @@ class Index {
                 this.recipe.style = data[0].style.name;
                 this.recipe.version = data[0].version;
                 this.recipe.ibu = data[0].style.ibuMax;
-                this.recipe.abv = data[0].style.abvMax;
-                this.recipeArray.push(this.recipe);
+                this.recipe.abv = data[0].estimatedAbv;
                 this.renderRecipe(this.recipe)
             })
             .catch(error => {
                 alert("There was a problem getting recipe information!");
-                //alert(error.message); //test trash
             });
-
+            document.getElementById('search').value = "";
     }
+    
     renderRecipe(recipe) {
         let name = recipe.name;
         let style = recipe.style;
         let version = recipe.version;
-        let ibu = recipe.ibuMax;
-        let abv = recipe.avbMAX;
+        let ibu = recipe.ibu;
+        let abv = recipe.abv;
         
             this.recipe = `
             <tbody id="brew">
