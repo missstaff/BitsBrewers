@@ -52,6 +52,7 @@ class Index {
                 <td>${version}</td>
                 <td>${ibu}</td>
                 <td>${abv}</td>
+            </div>
                 <td><a class="btn btn-default button1" href="history.html">History</a></td>
                 <td><a class="btn btn-default button1" href="ingredients.html">Ingredients</a></td>
                 <td><a class="btn btn-default button1" href="container.html">Select</button></td>
