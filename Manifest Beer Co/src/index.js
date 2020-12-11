@@ -36,6 +36,8 @@ class Index {
             });
         document.getElementById('search-add').value = "";
     }
+    //note to self use calendar icon in lower table to put in array and display at top of page~do not use brew schedule page yet!
+
 
     /*renderRecipeList(recipe) {
         const recipesHTML = recipe.map((recipe, index) => this.renderRecipeListItem(recipe, index)).join('');
