@@ -10,7 +10,6 @@ class Index {
             abv: 0
         };
 
-        
         document.getElementById('search-form').onclick = this.onFormSubmit.bind(this);
 
     }
@@ -18,7 +17,6 @@ class Index {
     onFormSubmit(event) {
         event.preventDefault();
         let rName = document.getElementById('search').value;
-        //rName.ToString();
         fetch(this.url + `${rName}`)
             .then(response => response.json())
             .then(data => {

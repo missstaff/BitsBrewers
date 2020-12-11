@@ -85,39 +85,41 @@
     <!--Brew Schedule Table-->
     <!--**Displays 5 products to brew**
         **has pagination-->
-    <table class="container-fullwidth table table-striped mt-3">
-        <thead>
-            <tr>
-                <th>NAME</th>
-                <th>STYLE</th>
-                <th>V</th>
-                <th>IBU</th>
-                <th>AVB</th>
-                <th>HISTORY</th>
-                <th>INGREDIENTS</th>
-                <th>CONTAINER</th>
-                <th>QOH</th>
-                <th>BREWING</th>
-                <th>SCHEDULE</th>
-            </tr>
-        </thead>
-        <tbody id="brew">
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <!--ideally this icon would display expected date of completion(red) or start(green)-->
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="grid">
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>STYLE</th>
+                    <th>V</th>
+                    <th>IBU</th>
+                    <th>AVB</th>
+                    <th>HISTORY</th>
+                    <th>INGREDIENTS</th>
+                    <th>CONTAINER</th>
+                    <th>QOH</th>
+                    <th>BREWING</th>
+                    <th>SCHEDULE</th>
+                </tr>
+            </thead>
+            <tbody id="brew">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <!--ideally this icon would display expected date of completion(red) or start(green)-->
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <!--links to previous and next page-->
     <ul class="ul2">
         <li><a class="page" href="#">Prev</a></li>
@@ -135,7 +137,8 @@
     </div>
 
     <!--Add Recipe To Brew Schedule Table-->
-    <table class="container-fullwidth table table-striped mt-3">
+   <div class="grid">
+    <table class="table table-striped mt-3">
         <thead>
             <tr>
                 <th>NAME</th>
@@ -267,6 +270,7 @@
             </td>
         </tr>
     </table>
+   </div>
     <ul class="ul2">
         <li><a class="page" href="#">Prev</a></li>
         <li><a class="page" href="#">Next</a></li>

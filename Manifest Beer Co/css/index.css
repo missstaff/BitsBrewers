@@ -58,6 +58,15 @@ thead > tr   {
   background-color: var(--light-gray);
 }
 
+.grid {
+  background-size: cover;
+
+  /* Grid styles */
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
 table, tr {
     border-collapse: collapse;
     border: 2px solid var(--main-dgray);

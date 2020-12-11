@@ -50,6 +50,15 @@ h1, h2 {
   margin-left: auto;
 }
 
+.grid {
+  background-size: cover;
+
+  /* Grid styles */
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
 thead > tr   {
   background-color: #c3e2ed;
   border-collapse: collapse;
