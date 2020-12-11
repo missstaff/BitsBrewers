@@ -7,16 +7,19 @@ class Index {
             style: "",
             version: 0,
             ibu: 0,
-            abv: 0
+            abv: 0,
+            date: null
         };
 
-        document.getElementById('search-form').onclick = this.onFormSubmit.bind(this);
+        this.renderRecipesList = this.renderRecipesListItem.bind(this);
+
+        document.getElementById('search-add-button').onclick = this.onFormSubmit.bind(this);
 
     }
 
     onFormSubmit(event) {
         event.preventDefault();
-        let rName = document.getElementById('search').value;
+        let rName = document.getElementById('search-add').value;
         fetch(this.url + `${rName}`)
             .then(response => response.json())
             .then(data => {
@@ -25,22 +28,33 @@ class Index {
                 this.recipe.version = data[0].version;
                 this.recipe.ibu = data[0].style.ibuMax;
                 this.recipe.abv = data[0].estimatedAbv;
-                this.renderRecipe(this.recipe)
+                this.recipe.date = data[0].date;
+                this.renderRecipesListItem(this.recipe)
             })
             .catch(error => {
                 alert("There was a problem getting recipe information!");
             });
-            document.getElementById('search').value = "";
+        document.getElementById('search-add').value = "";
     }
-    
-    renderRecipe(recipe) {
+
+    /*renderRecipeList(recipe) {
+        const recipesHTML = recipe.map((recipe, index) => this.renderRecipeListItem(recipe, index)).join('');
+        document.getElementById("brew").innerHTML = recipesHTML;
+        let recipes = document.getElementsByClassName("brew");
+        for (let i = 0; i < items.length; i++) {
+            recipes[i].ontouch = this.renderCurrentRecipe.bind(this, i);
+        }
+    }*/
+
+    renderRecipesListItem(recipe) {
         let name = recipe.name;
         let style = recipe.style;
         let version = recipe.version;
         let ibu = recipe.ibu;
         let abv = recipe.abv;
-        
-            this.recipe = `
+        let date = recipe.date;
+
+        this.recipe = `
             <tbody id="brew">
             <tr>
                 <td>${name}</td>
@@ -48,14 +62,13 @@ class Index {
                 <td>${version}</td>
                 <td>${ibu}</td>
                 <td>${abv}</td>
-            </div>
+                <td>${date}</td>
+                <td>Y/N</td>
+                <td>QOH</td>
                 <td><a class="btn btn-default button1" href="history.html">History</a></td>
                 <td><a class="btn btn-default button1" href="ingredients.html">Ingredients</a></td>
-                <td><a class="btn btn-default button1" href="container.html">Select</button></td>
-                <td>QOH</td>
-                <td>Y/N</td>
                 <!--ideally this icon would display expected date of completion(red) or start(green)-->
-                <td><a class="btn btn-default button2" href="./schedule.html">
+                <td><a class="btn btn-default button2 ml-3" href="./schedule.html">
                         <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -66,10 +79,10 @@ class Index {
             </tr>
             </tbody>
              `
-        ;
- 
+            ;
+
         document.getElementById("brew").innerHTML = this.recipe;
-        document.getElementById('search').value = "";
+        document.getElementById('search-add').value = "";
     }
 
 }
