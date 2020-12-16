@@ -23,6 +23,10 @@ class Index {
                 date: null
             },
         ];
+        this.renderRecipe = this.renderRecipe.bind(this);
+
+        document.getElementById('search-add-button').ontouchend = this.onFormSubmit.bind(this);
+
 
         if (!localStorage["RECIPES"]) {
             this.schedule = [
@@ -39,12 +43,6 @@ class Index {
             this.scheduled.recipes = JSON.parse(localStorage["RECIPES"]);
             this.fillScheduledRecipesList = this.fillScheduledRecipesList.bind(this);
             this.fillScheduledRecipesList();
-
-
-        this.renderRecipe = this.renderRecipe.bind(this);
-
-        document.getElementById('search-add-button').ontouchend = this.onFormSubmit.bind(this);
-
     }
 
     onFormSubmit(event) {
