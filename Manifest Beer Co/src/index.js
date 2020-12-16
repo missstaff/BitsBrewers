@@ -27,7 +27,7 @@ class Index {
 
         document.getElementById('search-add-button').ontouchend = this.onFormSubmit.bind(this);
 
-
+        //array to hold list of scheduled brews in local storage
         if (!localStorage["RECIPES"]) {
             this.schedule = [
                 {
@@ -40,7 +40,7 @@ class Index {
                 },
             ];
         } else 
-            this.scheduled.recipes = JSON.parse(localStorage["RECIPES"]);
+            this.schedule = JSON.parse(localStorage["RECIPES"]);
             this.fillScheduledRecipesList = this.fillScheduledRecipesList.bind(this);
             this.fillScheduledRecipesList();
     }
@@ -107,13 +107,12 @@ class Index {
     }
 
     fillScheduledRecipesList() {
-
         localStorage.setItem("RECIPES", JSON.stringify(this.schedule));
  
-        let recipeHtml = this.schedule.reduce(
+        /*let recipeHtml = this.schedule.reduce(
             (html, recipe, index) => html += this.generateRecipeHtml(recipe, index),
             '');
-        document.getElementById("brew").innerHTML = recipeHtml;
+        document.getElementById("brew").innerHTML = recipeHtml;*/
     }
 
 }
