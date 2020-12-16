@@ -10,6 +10,9 @@ class Index {
             abv: 0,
             date: null
         };*/
+        //array for find recipes list
+        //can't add recipes with the same name and I am not ready to search by
+        //version or style to verify that multiple recipes are displayed when approriate
         this.recipes = [
             {
                 name: "",
@@ -20,6 +23,23 @@ class Index {
                 date: null
             },
         ];
+
+        if (!localStorage["RECIPES"]) {
+            this.schedule = [
+                {
+                    name: "test brew",
+                    style: "test",
+                    version: 9,
+                    ibu: 8,
+                    abv: 7,
+                    date: null
+                },
+            ];
+        } else 
+            this.scheduled.recipes = JSON.parse(localStorage["RECIPES"]);
+            this.fillScheduledRecipesList = this.fillScheduledRecipesList.bind(this);
+            this.fillScheduledRecipesList();
+
 
         this.renderRecipe = this.renderRecipe.bind(this);
 
@@ -67,7 +87,7 @@ class Index {
                 <td>${abv}</td>
                 <td>${date}</td>
                 <td>Y/N</td>
-                <td>QOH</td>
+                <td><a class="btn btn-default button1" href="">QOH</a></td>
                 <td><a class="btn btn-default button1" href="history.html">History</a></td>
                 <td><a class="btn btn-default button1" href="ingredients.html">Ingredients</a></td>
                 <!--ideally this icon would display expected date of completion(red) or start(green)-->
@@ -86,6 +106,16 @@ class Index {
 
         document.getElementById("brew").innerHTML = this.recipe;
         document.getElementById('search-add').value = "";
+    }
+
+    fillScheduledRecipesList() {
+
+        localStorage.setItem("RECIPES", JSON.stringify(this.schedule));
+ 
+        let recipeHtml = this.schedule.reduce(
+            (html, recipe, index) => html += this.generateRecipeHtml(recipe, index),
+            '');
+        document.getElementById("brew").innerHTML = recipeHtml;
     }
 
 }
