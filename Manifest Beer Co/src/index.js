@@ -2,18 +2,28 @@ class Index {
     constructor() {
         this.url = 'https://localhost:44394/api/recipes/name/';
 
-        this.recipe = {
+        /*this.recipe = {
             name: "",
             style: "",
             version: 0,
             ibu: 0,
             abv: 0,
             date: null
-        };
+        };*/
+        this.recipes = [
+            {
+                name: "",
+                style: "",
+                version: 0,
+                ibu: 0,
+                abv: 0,
+                date: null
+            },
+        ];
 
-        this.renderRecipesList = this.renderRecipesListItem.bind(this);
+        this.renderRecipe = this.renderRecipe.bind(this);
 
-        document.getElementById('search-add-button').onclick = this.onFormSubmit.bind(this);
+        document.getElementById('search-add-button').ontouchend = this.onFormSubmit.bind(this);
 
     }
 
@@ -23,13 +33,13 @@ class Index {
         fetch(this.url + `${rName}`)
             .then(response => response.json())
             .then(data => {
-                this.recipe.name = data[0].name;
-                this.recipe.style = data[0].style.name;
-                this.recipe.version = data[0].version;
-                this.recipe.ibu = data[0].style.ibuMax;
-                this.recipe.abv = data[0].estimatedAbv;
-                this.recipe.date = data[0].date;
-                this.renderRecipesListItem(this.recipe)
+                this.recipes.name = data[0].name;
+                this.recipes.style = data[0].style.name;
+                this.recipes.version = data[0].version;
+                this.recipes.ibu = data[0].style.ibuMax;
+                this.recipes.abv = data[0].estimatedAbv;
+                this.recipes.date = data[0].date;
+                this.renderRecipe(this.recipes)
             })
             .catch(error => {
                 alert("There was a problem getting recipe information!");
@@ -38,17 +48,8 @@ class Index {
     }
     //note to self use calendar icon in lower table to put in array and display at top of page~do not use brew schedule page yet!
 
-
-    /*renderRecipeList(recipe) {
-        const recipesHTML = recipe.map((recipe, index) => this.renderRecipeListItem(recipe, index)).join('');
-        document.getElementById("brew").innerHTML = recipesHTML;
-        let recipes = document.getElementsByClassName("brew");
-        for (let i = 0; i < items.length; i++) {
-            recipes[i].ontouch = this.renderCurrentRecipe.bind(this, i);
-        }
-    }*/
-
-    renderRecipesListItem(recipe) {
+    //displays recipe(s) in the search for recipe table~these get added to the schedule table by pressing the calendar button//
+    renderRecipe(recipe, index) {
         let name = recipe.name;
         let style = recipe.style;
         let version = recipe.version;
@@ -70,7 +71,7 @@ class Index {
                 <td><a class="btn btn-default button1" href="history.html">History</a></td>
                 <td><a class="btn btn-default button1" href="ingredients.html">Ingredients</a></td>
                 <!--ideally this icon would display expected date of completion(red) or start(green)-->
-                <td><a class="btn btn-default button2 ml-3" href="./schedule.html">
+                <td><a class="btn btn-default button2 ml-3" href="">
                         <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"

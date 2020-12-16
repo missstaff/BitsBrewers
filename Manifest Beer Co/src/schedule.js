@@ -27,6 +27,7 @@ class Schedule {
 
     //retrieves month and year~displayed at top of page
     getMonthYear() {
+        
         const monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         ];
