@@ -52,7 +52,7 @@ class Index {
             this.fillScheduledRecipesList = this.fillScheduledRecipesList.bind(this);
             this.fillScheduledRecipesList();
             //this is for adding a recipe to schedule array
-           // document.getElementById('calendar').ontouchend = this.push.bind(this);
+            document.getElementById('move-to-schedule').ontouchend = this.addToSchedule.bind(this);
     }
 
     //api call for find recipe(lower search bar)//
@@ -79,15 +79,16 @@ class Index {
 
     //displays recipe(s) in the search for recipe table~these 
     //get added to the schedule table by pressing the calendar button//
-    renderRecipe(recipe) {
+    renderRecipe(recipe, index) {
         let name = recipe.name;
         let style = recipe.style;
         let version = recipe.version;
         let ibu = recipe.ibu;
         let abv = recipe.abv;
         let date = recipe.date;
-
-        this.recipe = `
+        //search for recipe to brew table
+        for(let i = 0; i < this.recipes.length; i++) {
+        recipe = `
             <tbody id="brew">
             <tr>
                 <td>${name}</td>
@@ -101,7 +102,8 @@ class Index {
                 <td><a class="btn btn-default button1" href="history.html">History</a></td>
                 <td><a class="btn btn-default button1" id="calendar" href="ingredients.html">Ingredients</a></td>
                 <!--ideally this icon would display expected date of completion(red) or start(green)-->
-                <td><a class="btn btn-default button2 ml-3" href="">
+                <td id="move-to-schedule"><a class="btn btn-default button2 ml-3" href="" ontouchend="index.addToSchedule
+                (event,${index})">
                         <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -113,11 +115,11 @@ class Index {
             </tbody>
              `
             ;
-
-        document.getElementById("brew").innerHTML = this.recipe;
+            document.getElementById("brew").innerHTML = recipe;
+        }
         document.getElementById('search-add').value = "";
     }
-
+    //scheduled table
     generateRecipeHtml(recipe, index) {
         return `
         <tbody id="scheduled">
@@ -153,6 +155,13 @@ class Index {
             (html, recipe, index) => html += this.generateRecipeHtml(recipe, index),
             '');
         document.getElementById("scheduled").innerHTML = recipeHtml;
+    }
+
+    addToSchedule(event) {
+        event.preventDefault();
+        let newRecipe = this.recipes;
+        this.scheduled.push(newRecipe); 
+        this.fillScheduledRecipesList(); 
     }
 
 }
