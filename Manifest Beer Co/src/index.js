@@ -29,18 +29,26 @@ class Index {
 
         //array to hold list of scheduled brews in local storage
         if (!localStorage["RECIPES"]) {
-            this.schedule = [
+            this.scheduled = [
                 {
-                    name: "test brew",
-                    style: "test",
+                    name: "2020",
+                    style: "IPA",
                     version: 9,
                     ibu: 8,
                     abv: 7,
                     date: null
                 },
+                {
+                    name: "Slayin It",
+                    style: "Ale",
+                    version: 9,
+                    ibu: 8,
+                    abv: 12,
+                    date: null
+                },
             ];
         } else 
-            this.schedule = JSON.parse(localStorage["RECIPES"]);
+            this.scheduled = JSON.parse(localStorage["RECIPES"]);
             this.fillScheduledRecipesList = this.fillScheduledRecipesList.bind(this);
             this.fillScheduledRecipesList();
             //this is for adding a recipe to schedule array
@@ -71,7 +79,7 @@ class Index {
 
     //displays recipe(s) in the search for recipe table~these 
     //get added to the schedule table by pressing the calendar button//
-    renderRecipe(recipe, index) {
+    renderRecipe(recipe) {
         let name = recipe.name;
         let style = recipe.style;
         let version = recipe.version;
@@ -112,7 +120,7 @@ class Index {
 
     generateRecipeHtml(recipe, index) {
         return `
-        <tbody id="schedule">
+        <tbody id="scheduled">
         <tr>
             <td>${recipe.name}</td>
             <td>${recipe.style}</td>
@@ -139,12 +147,12 @@ class Index {
     }
 
     fillScheduledRecipesList() {
-        localStorage.setItem("RECIPES", JSON.stringify(this.schedule));
+        localStorage.setItem("RECIPES", JSON.stringify(this.scheduled));
  
-       let recipeHtml = this.schedule.reduce(
+       let recipeHtml = this.scheduled.reduce(
             (html, recipe, index) => html += this.generateRecipeHtml(recipe, index),
             '');
-        document.getElementById("schedule").innerHTML = recipeHtml;
+        document.getElementById("scheduled").innerHTML = recipeHtml;
     }
 
 }
