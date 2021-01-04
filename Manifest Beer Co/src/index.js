@@ -121,6 +121,7 @@ class Index {
     }
     //scheduled table
     generateRecipeHtml(recipe, index) {
+        index = this.scheduled[index];
         return `
         <tbody id="scheduled">
         <tr>
@@ -159,9 +160,19 @@ class Index {
 
     addToSchedule(event) {
         event.preventDefault();
-        let newRecipe = this.recipes;
-        this.scheduled.push(newRecipe); 
-        this.fillScheduledRecipesList(); 
+        for(let i = 0; i < this.recipes.length; i++) {
+            let recipe = {
+                name: this.recipes.name,
+                style: this.recipes.style,
+                version: this.recipes.version,
+                ibu: this.recipes.ibu,
+                abv: this.recipes.abv,
+                date: this.recipes.date
+            }
+            this.scheduled.push(recipe); 
+            this.fillScheduledRecipesList(); 
+        }
+        
     }
 
 }
