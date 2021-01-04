@@ -134,7 +134,7 @@ class Index {
             <td><a class="btn btn-default button1" href="ingredients.html">Ingredients</a></td>
             <td><a class="btn btn-default button1" href="container.html">Container</a></td>
             <td><a class="btn btn-default button1" href="qoh.html">QOH</a></td>
-            <td>Y/N</td>
+            <td>N</td>
             <!--ideally this icon would display expected date of completion(red) or start(green)-->
             <td><a class="btn btn-default button2 ml-3" href="">
                     <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor"
@@ -160,6 +160,7 @@ class Index {
 
     addToSchedule(event) {
         event.preventDefault();
+        let brewing = false;
         for(let i = 0; i < this.recipes.length; i++) {
             let recipe = {
                 name: this.recipes.name,
@@ -169,6 +170,7 @@ class Index {
                 abv: this.recipes.abv,
                 date: this.recipes.date
             }
+
             this.scheduled.push(recipe); 
             this.fillScheduledRecipesList(); 
         }
